@@ -34,4 +34,13 @@ with open('Q2.json', 'r') as f:
 
 
 performance = []
-for i in range(0):
+for i in range(len(data)):
+    start = timeit.default_timer()
+    func1(data[i], 0, len(data[i])-1)
+    stop = timeit.default_timer()
+    performance.append(stop - start)
+
+plt.plot(performance)
+plt.ylabel('Time')
+plt.xlabel('Input Size')
+plt.show()
