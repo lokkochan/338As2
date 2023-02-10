@@ -2,11 +2,14 @@ import json
 import sys
 import timeit
 import math
+import random
 import matplotlib.pyplot as plt
 
 sys.setrecursionlimit(20000)
 def func1(arr, low, high):
     if low < high:
+        pivot_index = random.randint(low, high)
+        arr[low], arr[pivot_index] = arr[pivot_index], arr[high]
         pi = func2(arr, low, high)
         func1(arr, low, pi-1)
         func1(arr, pi + 1, high)

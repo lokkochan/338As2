@@ -4,6 +4,18 @@ import timeit
 import math
 import matplotlib.pyplot as plt
 
+
+with open('Q2.json', 'r') as f:
+    # Read the file
+    data = json.load(f)
+
+for each in data:
+    each.insert(int(sum(each)/len(each)), 0)
+
+print(data[0][0])
+with open('Q2out.json', 'w') as f:
+    json.dump(data, f)
+
 sys.setrecursionlimit(20000)
 def func1(arr, low, high):
     if low < high:
@@ -27,13 +39,6 @@ def func2(array, start, end):
     array[start], array[high] = array[high], array[start]
     return high
 
-
-# Open the file
-with open('Q2.json', 'r') as f:
-    # Read the file
-    data = json.load(f)
-
-
 performance = []
 for i in range(len(data)):
     start = timeit.default_timer()
@@ -54,3 +59,4 @@ plt.xlabel('Input Size')
 
 plt.show()
 print((sum(performance))/len(performance))
+
