@@ -10,9 +10,8 @@ with open('Q2.json', 'r') as f:
     data = json.load(f)
 
 for each in data:
-    each.insert(int(sum(each)/len(each)), 0)
-
-print(data[0][0])
+    each.insert(0,int(sum(each)/len(each)))
+    
 with open('Q2out.json', 'w') as f:
     json.dump(data, f)
 
