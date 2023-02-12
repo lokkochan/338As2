@@ -43,14 +43,19 @@ for i in range(len(data)):
 
 size=[len(i) for i in data]
 
-plt.subplot(2, 1, 1)
+plt.subplot(3, 1, 1)
 plt.plot(size,performance)
 plt.ylabel('Time')
 #2.3
 nlogn=[i*math.log(i) for i in size]
-plt.subplot(2, 1, 2)
+plt.subplot(3, 1, 2)
 plt.plot(size,nlogn)
+
+n2=[i**2 for i in size]
+plt.subplot(3, 1, 3)
+plt.plot(size,n2)
 plt.xlabel('Input Size')
+
 
 plt.show()
 print((sum(performance))/len(performance))
